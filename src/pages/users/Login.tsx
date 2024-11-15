@@ -1,16 +1,9 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { RootState } from "../../redux/store";
-import { setName, setPassword } from "../../redux/features/loginSlice";
+import React from "react";
 
-const Login = () => {
-  const dispatch = useAppDispatch();
-  const { userName, password } = useAppSelector(
-    (state: RootState) => state.login
-  );
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+const Login: React.FC = () => {
+  const handleSubmit = ({ email, password }) => {
+    console.log("user", email, password);
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-700 to-red-600 ">
@@ -18,19 +11,17 @@ const Login = () => {
         <h2 className="text-2xl font-semibold text-center  text-green-700">
           Login
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form className="my-8 space-y-6">
           <div>
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="block text-sm text-gray-700 font-medium mb-2"
             >
-              Name
+              User Email
             </label>
             <input
               type="text"
-              id="username"
-              value={userName}
-              onChange={(e) => dispatch(setName(e.target.value))}
+              id="email"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
             />
@@ -45,8 +36,6 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              value={password}
-              onChange={(e) => dispatch(setPassword(e.target.value))}
               required
               className="w-full p-3 border border-gray-300 rounded-lg"
             />

@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./features/cartSlice";
 import loginReducer from "./features/loginSlice";
 import registerReducer from "./features/RegisterSlice";
+import { baseApi } from "./api/baseApi/baseApi";
 
 // const persistUserConfig = {
 //   key: "user",
@@ -11,6 +12,7 @@ import registerReducer from "./features/RegisterSlice";
 
 export const store = configureStore({
   reducer: {
+    [baseApi.reducerPath]: baseApi.reducer,
     cart: cartReducer,
     login: loginReducer,
     register: registerReducer,
