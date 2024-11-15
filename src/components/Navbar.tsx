@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Moon, ShoppingCart } from "lucide-react";
-import  { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Eshadhin from "../assets/logo.png";
+import { useAppSelector } from "../redux/hooks";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const Header = () => {
+  const products = useAppSelector((store) => store.cart.products);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -13,8 +15,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-green-700 text-white rounded-sm px-3">
-      <nav className="container mx-auto flex items-center justify-between space-x-10 py-4">
+    <header className=" bg-green-700 text-white rounded-sm px-3">
+      <nav className="container mx-auto flex items-center justify-between space-x-10 py-4 fixed z-40 bg-green-500">
         <Link to={"/"}>
           {/* <img src={Eshadhin} alt="Eshadhin Logo" className="w-28" /> */}
         </Link>
@@ -32,7 +34,7 @@ const Header = () => {
             <li>
               <a
                 className="rounded-lg backdrop-blur-[2px] p-1 inline-block"
-                href="#"
+                href="/about"
               >
                 About
               </a>
@@ -45,7 +47,7 @@ const Header = () => {
                 <ShoppingCart size={24} />
               </Link>
               <span className="rounded-full absolute top-[-10px] left-[20px] bg-primary text-white text-center size-[25px]">
-                'products.length'
+                {products.length}
               </span>
             </li>
 
@@ -56,6 +58,14 @@ const Header = () => {
               >
                 <Moon size={24} />
               </button>
+            </li>
+            <li>
+              <Link
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block"
+                to={"/login"}
+              >
+                Login
+              </Link>
             </li>
           </ul>
         </div>
