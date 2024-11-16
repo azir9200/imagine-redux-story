@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { RootState } from "../../redux/store";
 import {
@@ -7,20 +7,46 @@ import {
   setPassword,
   setRole,
 } from "../../redux/features/RegisterSlice";
+import { useSignUpMutation } from "../../redux/api/authApi/authApi";
+import toast from "react-hot-toast";
 
 const Register: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { username, email, password, role } = useAppSelector(
+  const { name, email, password, role } = useAppSelector(
     (state: RootState) => state.register
   );
+  const [signUp, { data }] = useSignUpMutation();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const register = await signUp({ name, email, password, role });
+      console.log("user Regitser", register);
+      toast.success("You are logged in successfully!");
+      navigate("/login");
+    } catch (error) {
+      console.error("Login Error:", error);
+      toast.error("An error occurred while logging in.");
+    }
+
+    // const register = await signUp({ name, email, password, role });
+
+    // toast.success(
+    //   <div className="justify-center items-center text-white text-3xl p-20  bg-gradient-to-r from-sky-700 to-yellow-600">
+    //     {" "}
+    //     User Register successfully!{" "}
+    //   </div>
+    // );
+  };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from bg-green-800 to bg-red-600">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-800 to bg-red-600">
       <div className=" bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6 text-red-700">
           Register
         </h2>
-        <form className="mb-8 space-y-6">
+        <form className="mb-8 space-y-6" onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="name"
@@ -31,8 +57,8 @@ const Register: React.FC = () => {
             <input
               type="text"
               id="name"
-              value={username}
-              onChange={(e) => dispatch(setName(username))}
+              value={name}
+              onChange={(e) => dispatch(setName(e.target.value))}
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
             />
@@ -48,7 +74,7 @@ const Register: React.FC = () => {
               type="text"
               id="email"
               value={email}
-              onChange={(e) => dispatch(setEmail(email))}
+              onChange={(e) => dispatch(setEmail(e.target.value))}
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
             />
@@ -65,7 +91,7 @@ const Register: React.FC = () => {
               type="role"
               id="role"
               value={role}
-              onChange={(e) => dispatch(setRole(role))}
+              onChange={(e) => dispatch(setRole(e.target.value))}
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
             />
@@ -82,7 +108,7 @@ const Register: React.FC = () => {
                 type="password"
                 id="password"
                 value={password}
-                onChange={(e) => dispatch(setPassword(password))}
+                onChange={(e) => dispatch(setPassword(e.target.value))}
                 required
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
               />
@@ -95,21 +121,20 @@ const Register: React.FC = () => {
             >
               Register
             </button>
+            <p className="bg-slate-200 ">
+              Already register, Switch to
+              <span>
+                <Link
+                  to="/login"
+                  className="w-full text-red-700 font-bold px-4   text-xl rounded-lg hover:bg-green-800 transition-colors "
+                >
+                  Login
+                </Link>
+              </span>
+            </p>
           </div>
         </form>
-        <div>
-          <p className="bg-slate-200">
-            Already register, Switch to
-            <span>
-              <Link
-                to="/login"
-                className="w-full bg-gradient-to-r from-green-700 to-red-600 text-white ml-4 px-6  text-xl rounded-lg hover:bg-green-800 transition-colors"
-              >
-                Login
-              </Link>
-            </span>
-          </p>
-        </div>
+        <div className=""></div>
       </div>
     </div>
   );
