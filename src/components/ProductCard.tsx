@@ -20,10 +20,10 @@ const ProductCart = ({ product }: { product: any }) => {
     setShowModal(false);
   };
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product: any) => {
     console.log("object", product);
     dispatch(addToCart(product));
-    toast.success(<div> You  Product added to cart successfully! </div>);
+    toast.success(<div> You Product added to cart successfully! </div>);
   };
 
   return (

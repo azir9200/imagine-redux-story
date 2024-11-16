@@ -6,13 +6,13 @@ import { removeFromCart, updateQuantity } from "../redux/features/cartSlice";
 const CartDetails = ({ product }: any) => {
   const dispatch = useAppDispatch();
 
-  const handleQuantity = (type: string, id: string) => {
-    const payload = { type, id };
+  const handleQuantity = (type: string, _id: string) => {
+    const payload = { type, _id };
     dispatch(updateQuantity(payload));
   };
 
-  const handleRemove = (id: string) => {
-    dispatch(removeFromCart({ id }));
+  const handleRemove = (_id: string) => {
+    dispatch(removeFromCart({ _id }));
   };
 
   return (
@@ -30,21 +30,21 @@ const CartDetails = ({ product }: any) => {
       </div>
       <div className="flex items-center space-x-2">
         <button
-          onClick={() => handleQuantity("decrement", product.id)}
+          onClick={() => handleQuantity("decrement", product._id)}
           className="bg-green-700 text-white p-2 rounded-full hover:bg-green-800"
         >
           <Minus size={18} />
         </button>
         <span className="text-lg font-semibold">{product.quantity}</span>
         <button
-          onClick={() => handleQuantity("increment", product.id)}
+          onClick={() => handleQuantity("increment", product._id)}
           className="bg-green-700 text-white p-2 rounded-full hover:bg-green-800"
         >
           <Plus size={18} />
         </button>
       </div>
       <button
-        onClick={() => handleRemove(product.id)}
+        onClick={() => handleRemove(product._id)}
         className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700"
       >
         <Trash2 size={18} />

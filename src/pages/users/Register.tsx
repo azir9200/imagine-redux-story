@@ -15,7 +15,7 @@ const Register: React.FC = () => {
   const { name, email, password, role } = useAppSelector(
     (state: RootState) => state.register
   );
-  const [signUp, { data }] = useSignUpMutation();
+  const [signUp] = useSignUpMutation();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,8 +29,6 @@ const Register: React.FC = () => {
       console.error("Login Error:", error);
       toast.error("An error occurred while logging in.");
     }
-
-    // const register = await signUp({ name, email, password, role });
 
     // toast.success(
     //   <div className="justify-center items-center text-white text-3xl p-20  bg-gradient-to-r from-sky-700 to-yellow-600">
@@ -134,7 +132,6 @@ const Register: React.FC = () => {
             </p>
           </div>
         </form>
-        <div className=""></div>
       </div>
     </div>
   );

@@ -1,16 +1,16 @@
 import { ReactNode } from "react";
 import { useAppSelector } from "../../redux/hooks";
-import { useCurrentToken } from "../../redux/features/userSlice";
+import { selectCurrentUser } from "../../redux/features/userSlice";
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }: { children: ReactNode }) => {
-  const token = useAppSelector(useCurrentToken);
+  const user = useAppSelector(selectCurrentUser);
+  console.log(" user protected", user);
 
-  if (!token) {
-    return <Navigate to="/login" replace={true} />;
+  if (user?.email) {
+    return children;
   }
-
-  return children;
+  return <Navigate to="/login" replace={true} />;
 };
 
 export default ProtectedRoute;

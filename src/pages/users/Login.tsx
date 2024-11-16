@@ -5,26 +5,28 @@ import { RootState } from "../../redux/store";
 import { setEmail, setPassword } from "../../redux/features/loginSlice";
 import { useLoginMutation } from "../../redux/api/authApi/authApi";
 import toast from "react-hot-toast";
-import { jwtDecode } from "jwt-decode";
+import { setUser } from "../../redux/features/userSlice";
+import { verifyToken } from "../../redux/utils";
+
 const Login: React.FC = () => {
   const dispatch = useAppDispatch();
   const { email, password } = useAppSelector((state: RootState) => state.login);
 
-  // const { token } = useAppSelector((state: RootState) => state.user);
-
-  const [login, { isLoading }] = useLoginMutation();
+  const [login] = useLoginMutation();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await login({ email, password }).unwrap();
-      const accessToken = response?.data?.accessToken;
+      const result = await login({ email, password }).unwrap();
+      console.log("result login", result);
 
-      if (accessToken) {
-        const user = jwtDecode(accessToken); // Decoded user data
-        console.log("Decoded User Data:", user);
+      const user = verifyToken(result.data.accessToken);
+      console.log("user user", user);
+      dispatch(setUser({ user: user, token: result.data.accessToken }));
+
+      if (result.success && result.data?.accessToken) {
         toast.success("You are logged in successfully!");
         navigate("/");
       } else {
@@ -93,7 +95,7 @@ const Login: React.FC = () => {
               <span>
                 <Link
                   to="/register"
-                  className="w-full bg-green-300 text-white  px-3 py-4 rounded-lg hover:bg-green-800 transition-colors"
+                  className="w-full text-red-600 font-bold px-4   text-xl rounded-lg hover:bg-green-800 transition-colors "
                 >
                   Register
                 </Link>
