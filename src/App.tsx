@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className=" min-h-screen w-full ">
+    <div>
       <Toaster />
       <MainLayout />
     </div>

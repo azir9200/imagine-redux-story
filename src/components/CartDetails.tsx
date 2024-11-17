@@ -32,6 +32,7 @@ const CartDetails = ({ product }: any) => {
         <button
           onClick={() => handleQuantity("decrement", product._id)}
           className="bg-green-700 text-white p-2 rounded-full hover:bg-green-800"
+          disabled={product.quantity === 1}
         >
           <Minus size={18} />
         </button>

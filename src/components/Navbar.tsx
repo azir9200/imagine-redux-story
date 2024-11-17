@@ -9,8 +9,7 @@ import { logout, selectCurrentUser } from "../redux/features/userSlice";
 const Header = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((store) => store.cart.products);
-  // const loggedUser = useAppSelector((store) => store.user.user);
-  // console.log(" logged user", loggedUser);
+
   const user = useAppSelector(selectCurrentUser);
   console.log("navnbar user", user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,10 +20,9 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(logout());
   };
-
   return (
-    <header className=" bg-green-700 text-white">
-      <nav className=" fixed top-0 left-0 w-full z-50 mx-auto flex items-center justify-between space-x-10 py-2 bg-green-500 ">
+    <header className="bg-green-200 mx-20 text-white">
+      <nav className="px-20 mx-6 fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-green-400">
         <Link to={"/"} className="hover:bg-green-900 rounded ">
           <img src={logo} alt="logo" className="w-16  " />
         </Link>
@@ -66,15 +64,6 @@ const Header = () => {
                 {products.length}
               </span>
             </li>
-
-            {/* <li>
-              <button
-                onClick={handleToggleTheme}
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block"
-              >
-                <Moon size={24} />
-              </button>
-            </li> */}
             {/* Authentication Buttons */}
             {user ? (
               <>
