@@ -5,7 +5,6 @@ const Home = () => {
   return (
     <div className="bg-gradient-to-r from-green-700 to-red-600 w-full">
       <Banner />
-      {/* <ImageGallery /> */}
       <Products />
     </div>
   );

@@ -1,8 +1,10 @@
 import { CreditCard, Trash2 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { clearCart } from "../redux/features/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const OrderSummary = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { tax, taxRate, grandTotal, totalPrice, selectedItems } =
     useAppSelector((store) => store.cart);
@@ -43,6 +45,7 @@ const OrderSummary = () => {
         <button
           onClick={(e) => {
             e.stopPropagation();
+            navigate("/checkout");
           }}
           className="bg-green-600 px-3 py-2 text-white  mt-2 rounded-md w-full text-xs flex justify-between items-center"
         >
