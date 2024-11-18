@@ -27,7 +27,12 @@ const Login: React.FC = () => {
       dispatch(setUser({ user: user, token: result.data.accessToken }));
 
       if (result.success && result.data?.accessToken) {
-        toast.success("You are logged in successfully!");
+        toast.success(
+          <div className="justify-center items-center text-white text-3xl p-22  bg-gradient-to-r from-sky-700 to-yellow-600">
+            {" "}
+            Your login is successfully!{" "}
+          </div>
+        );
         navigate("/");
       } else {
         toast.error("Login failed. Please check your credentials.");
@@ -36,13 +41,6 @@ const Login: React.FC = () => {
       console.error("Login Error:", error);
       toast.error("An error occurred while logging in.");
     }
-    // toast.success(
-    //   <div className="justify-center items-center text-white text-3xl p-22  bg-gradient-to-r from-sky-700 to-yellow-600">
-    //     {" "}
-    //     You are login successfully!{" "}
-    //   </div>
-    // );
-    // console.log("data", data?.message);
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-700 to-red-600 ">

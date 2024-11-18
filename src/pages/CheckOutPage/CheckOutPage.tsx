@@ -1,41 +1,46 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useCreateOrderMutation } from "../../redux/api/orderApi/orderApi";
 import { useAppSelector } from "../../redux/hooks";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 export default function CheckOutPage() {
   const [createOrder] = useCreateOrderMutation();
   // State for user input
+  const userr = useSelector((state: RootState) => state.user);
+  console.log("user payment", userr);
+
   const [user, setUser] = useState({
-    name: "Fahim Ahammed",
-    email: "fahim@ph.com",
-    phone: "0123456789",
-    address: "Dhaka, Bangladesh",
+    name: "Anas Araf",
+    email: "anas@ph.com",
+    phone: "+351 923456789",
+    address: "Porto, Portugal",
   });
 
   const cartItems = useAppSelector((store) => store.cart.products);
   // Handle input changes
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const data = {
       user,
-      products: cartItems.map((item) => ({
+      products: cartItems.map((item: any) => ({
         product: item._id,
         quantity: item.quantity,
       })),
     };
     try {
       const res = await createOrder(data).unwrap();
+
       if (res.success) {
-        console.log("one", res);
-        const two = (window.location.href = res.data.payment_url);
-        console.log("two", two);
+        window.location.href = res.data.payment_url;
       } else {
         console.error("Order creation failed:", res.message);
       }
@@ -123,7 +128,7 @@ export default function CheckOutPage() {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item) => (
+              {cartItems.map((item: any) => (
                 <tr key={item._id} className="border-b">
                   <td className="py-3 px-4">{item.name}</td>
                   <td className="py-3 px-4">{item.quantity}</td>

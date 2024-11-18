@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Moon, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,7 +10,8 @@ const Header = () => {
   const products = useAppSelector((store) => store.cart.products);
 
   const user = useAppSelector(selectCurrentUser);
-  console.log("navnbar user", user);
+  console.log("user navbar", user);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {

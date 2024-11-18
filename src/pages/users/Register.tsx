@@ -29,13 +29,6 @@ const Register: React.FC = () => {
       console.error("Login Error:", error);
       toast.error("An error occurred while logging in.");
     }
-
-    // toast.success(
-    //   <div className="justify-center items-center text-white text-3xl p-20  bg-gradient-to-r from-sky-700 to-yellow-600">
-    //     {" "}
-    //     User Register successfully!{" "}
-    //   </div>
-    // );
   };
 
   return (

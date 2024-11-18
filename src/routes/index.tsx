@@ -8,11 +8,15 @@ import Login from "../pages/users/Login";
 import Register from "../pages/users/Register";
 import ProtectedRoute from "../components/layouts/ProtectedRoute";
 import CheckOutPage from "../pages/CheckOutPage/CheckOutPage";
+import PaymentFailed from "../pages/payments/PaymentFailed";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PaymentSuccess from "../pages/payments/PaymentSuccess";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -34,6 +38,14 @@ export const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <CheckOutPage />,
+      },
+      {
+        path: "payment/failed",
+        element: <PaymentFailed></PaymentFailed>,
+      },
+      {
+        path: "payment/success",
+        element: <PaymentSuccess />,
       },
       {
         path: "/about",

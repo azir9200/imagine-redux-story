@@ -3,7 +3,7 @@ const Banner = () => {
     <div className="mt-3  w-full bg-gradient-to-r from-green-700 to-red-600 text-white py-16 text-center">
       <div className="">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-          Welcome to Eshadhin
+          Welcome to FitGear Store. A E-Commerce Product Brand Land.
         </h1>
         <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">
           Your gateway to quality products and excellent service.
