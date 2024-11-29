@@ -3,14 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 interface UserState {
-  name: string | null;
   user: any | null;
   token: string | null;
 }
 const initialState: UserState = {
   token: "",
-  name: " ",
   user: {
+    name: "",
     email: "",
     role: "",
   },

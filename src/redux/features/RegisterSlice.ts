@@ -5,6 +5,7 @@ const initialState = {
   email: "",
   password: "",
   role: "",
+  address: "",
 };
 
 const registerSlice = createSlice({
@@ -23,8 +24,11 @@ const registerSlice = createSlice({
     setRole: (state, action: PayloadAction<string>) => {
       state.role = action.payload;
     },
+    setAddress: (state, action: PayloadAction<string>) => {
+      state.address = action.payload;
+    },
   },
 });
-export const { setName, setEmail, setPassword, setRole } =
+export const { setName, setEmail, setPassword, setRole, setAddress } =
   registerSlice.actions;
 export default registerSlice.reducer;

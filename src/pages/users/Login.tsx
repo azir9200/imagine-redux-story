@@ -10,7 +10,9 @@ import { verifyToken } from "../../redux/utils";
 
 const Login: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { email, password } = useAppSelector((state: RootState) => state.login);
+  const { name, email, password } = useAppSelector(
+    (state: RootState) => state.login
+  );
 
   const [login] = useLoginMutation();
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     try {
-      const result = await login({ email, password }).unwrap();
+      const result = await login({ name, email, password }).unwrap();
       console.log("result login", result);
 
       const user = verifyToken(result.data.accessToken);
@@ -43,7 +45,7 @@ const Login: React.FC = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-700 to-red-600 ">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-700 to-green-600 ">
       <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
         <h2 className="text-2xl font-semibold text-center  text-green-700">
           Login

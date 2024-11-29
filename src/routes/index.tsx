@@ -11,6 +11,7 @@ import CheckOutPage from "../pages/CheckOutPage/CheckOutPage";
 import PaymentFailed from "../pages/payments/PaymentFailed";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PaymentSuccess from "../pages/payments/PaymentSuccess";
+import ContactPage from "../pages/contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -47,10 +48,7 @@ export const router = createBrowserRouter([
         path: "payment/success",
         element: <PaymentSuccess />,
       },
-      {
-        path: "/about",
-        element: <About />,
-      },
+
       {
         path: "/login",
         element: <Login />,
@@ -58,6 +56,14 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
     ],
   },

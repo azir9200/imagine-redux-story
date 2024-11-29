@@ -3,7 +3,7 @@ import Products from "../components/Products";
 
 const Home = () => {
   return (
-    <div className="bg-gradient-to-r from-green-700 to-red-600 w-full">
+    <div className="bg-gradient-to-r from-blue-400 to-gray-400 w-full">
       <Banner />
       <Products />
     </div>

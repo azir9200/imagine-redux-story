@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { RootState } from "../../redux/store";
 import {
+  setAddress,
   setEmail,
   setName,
   setPassword,
@@ -12,7 +13,7 @@ import toast from "react-hot-toast";
 
 const Register: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { name, email, password, role } = useAppSelector(
+  const { name, email, password, role, address } = useAppSelector(
     (state: RootState) => state.register
   );
   const [signUp] = useSignUpMutation();
@@ -21,8 +22,8 @@ const Register: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const register = await signUp({ name, email, password, role });
-      console.log("user Regitser", register);
+      const register = await signUp({ name, email, password, role, address });
+      console.log("user Register", register);
       toast.success("You are logged in successfully!");
       navigate("/login");
     } catch (error) {
@@ -83,6 +84,22 @@ const Register: React.FC = () => {
               id="role"
               value={role}
               onChange={(e) => dispatch(setRole(e.target.value))}
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="address"
+              className="block text-sm text-gray-700 font-medium mb-2"
+            >
+              Address
+            </label>
+            <input
+              type="text"
+              id="address"
+              value={address}
+              onChange={(e) => dispatch(setAddress(e.target.value))}
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
             />

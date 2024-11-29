@@ -22,8 +22,8 @@ const Header = () => {
   };
   return (
     <header className="bg-green-200 mx-20 text-white">
-      <nav className="px-20 mx-6 fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-green-400">
-        <Link to={"/"} className="hover:bg-green-900 rounded ">
+      <nav className="px-20 mx-6 fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-blue-300">
+        <Link to={"/"} className="hover:bg-blue-700 rounded ">
           <img src={logo} alt="logo" className="w-16  " />
         </Link>
 
@@ -51,6 +51,14 @@ const Header = () => {
                 href="/about"
               >
                 About
+              </a>
+            </li>
+            <li>
+              <a
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-green-900"
+                href="/contact"
+              >
+                Contact
               </a>
             </li>
             <li className="relative">

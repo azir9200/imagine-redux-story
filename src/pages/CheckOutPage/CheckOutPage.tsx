@@ -4,33 +4,37 @@ import { useCreateOrderMutation } from "../../redux/api/orderApi/orderApi";
 import { useAppSelector } from "../../redux/hooks";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { useGetMeQuery } from "../../redux/api/getMeApi/getMeApi";
 
 export default function CheckOutPage() {
   const [createOrder] = useCreateOrderMutation();
-  // State for user input
-  const userr = useSelector((state: RootState) => state.user);
-  console.log("user payment", userr);
+  //get me query
+  const { data } = useGetMeQuery(undefined);
 
-  const [user, setUser] = useState({
-    name: "Anas Araf",
-    email: "anas@ph.com",
-    phone: "+351 923456789",
-    address: "Porto, Portugal",
-  });
+  const myself = data?.data;
+  console.log("myself 2", myself);
+  // State for user input
+
+  // const [user, setUser] = useState({
+  //   name: "Anas Araf",
+  //   email: "anas@ph.com",
+  //   phone: "+351 923456789",
+  //   address: "Porto, Portugal",
+  // });
 
   const cartItems = useAppSelector((store) => store.cart.products);
   // Handle input changes
-  const handleChange = (e: any) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = (e: any) => {
+  //   setUser({
+  //     ...user,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const data = {
-      user,
+      user: myself,
       products: cartItems.map((item: any) => ({
         product: item._id,
         quantity: item.quantity,
@@ -63,12 +67,12 @@ export default function CheckOutPage() {
               <input
                 type="text"
                 name="name"
-                value={user.name}
-                onChange={handleChange}
+                value={myself?.name}
                 required
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
               />
             </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 text-left">
                 Email
@@ -76,25 +80,25 @@ export default function CheckOutPage() {
               <input
                 type="email"
                 name="email"
-                value={user.email}
-                onChange={handleChange}
+                value={myself?.email}
                 required
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
               />
             </div>
-            <div>
+
+            {/* <div>
               <label className="block text-sm font-medium text-gray-700 text-left">
                 Phone
               </label>
               <input
                 type="text"
                 name="phone"
-                value={user.phone}
-                onChange={handleChange}
+                value={myself?.phone}
                 required
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
               />
-            </div>
+            </div> */}
+
             <div>
               <label className="block text-sm font-medium text-gray-700 text-left">
                 Address
@@ -102,8 +106,7 @@ export default function CheckOutPage() {
               <input
                 type="text"
                 name="address"
-                value={user.address}
-                onChange={handleChange}
+                value={myself?.address}
                 required
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
               />
