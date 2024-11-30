@@ -1,4 +1,4 @@
-import { Moon, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/image/logo.png";
@@ -21,9 +21,9 @@ const Header = () => {
     dispatch(logout());
   };
   return (
-    <header className="bg-green-200 mx-20 text-white">
-      <nav className="px-20 mx-6 fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-blue-300">
-        <Link to={"/"} className="hover:bg-blue-700 rounded ">
+    <header className=" mx-auto text-white text-lg p-2">
+      <nav className="px-20 mx-6 fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-blue-400">
+        <Link to={"/"} className="  hover:bg-purple-700 rounded ">
           <img src={logo} alt="logo" className="w-16  " />
         </Link>
 
@@ -31,7 +31,7 @@ const Header = () => {
           <ul className="flex items-center space-x-5">
             <li>
               <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-green-900"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
                 to={"/"}
               >
                 Home
@@ -39,7 +39,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-green-900"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
                 to={"/products"}
               >
                 Products
@@ -47,7 +47,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-green-900"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
                 href="/about"
               >
                 About
@@ -55,7 +55,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-green-900"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
                 href="/contact"
               >
                 Contact
@@ -63,7 +63,7 @@ const Header = () => {
             </li>
             <li className="relative">
               <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-green-900"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
                 to={"/cart"}
               >
                 <ShoppingCart size={24} />
@@ -77,7 +77,7 @@ const Header = () => {
               <>
                 <button
                   onClick={handleLogout}
-                  className="text-white text-xl font-medium hover:text-red  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-green-900"
+                  className="text-white text-xl font-medium hover:text-red  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
                 >
                   Logout
                 </button>
@@ -85,7 +85,7 @@ const Header = () => {
             ) : (
               <li>
                 <Link
-                  className="rounded-lg backdrop-blur-[2px] p-1 inline-block hover:bg-green-900"
+                  className="rounded-lg backdrop-blur-[2px] p-4 inline-block hover:bg-purple-700"
                   to={"/login"}
                 >
                   Login
@@ -96,10 +96,10 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden bg-slate-300 flex items-center">
           <button
             onClick={handleMenuToggle}
-            className="text-white focus:outline-none"
+            className="text-white p-2 rounded-md hover:bg-purple-700 focus:outline-none"
           >
             <svg
               className="w-6 h-6 "
@@ -130,10 +130,10 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="md:hidden flex flex-col items-center space-y-2 mt-14 w-full ">
-          <li>
+        <ul className="md:hidden bg-blue-500 flex flex-col items-center mt-8 py-4 w-full ">
+          <li className="">
             <Link
-              className="rounded-lg backdrop-blur-[2px] p-1 inline-block hover:bg-green-900"
+              className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
               to={"/productsPage"}
               onClick={handleMenuToggle}
             >
@@ -142,16 +142,25 @@ const Header = () => {
           </li>
           <li>
             <a
-              className="rounded-lg backdrop-blur-[2px] p-1 inline-block hover:bg-green-900"
-              href="#"
+              className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
+              href="/about"
               onClick={handleMenuToggle}
             >
               About
             </a>
           </li>
+          <li>
+            <a
+              className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
+              href="/contact"
+              onClick={handleMenuToggle}
+            >
+              Contact
+            </a>
+          </li>
           <li className="relative">
             <Link
-              className="rounded-lg backdrop-blur-[2px] p-1 inline-blockhover:bg-green-900 hover:bg-green-900"
+              className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
               to={"/cart"}
               onClick={handleMenuToggle}
             >
@@ -161,20 +170,13 @@ const Header = () => {
               {products.length}
             </span>
           </li>
-          <li>
-            <button
-              // onClick={handleToggleTheme}
-              className="rounded-lg backdrop-blur-[2px] p-1 inline-block hover:bg-green-900"
-            >
-              <Moon size={24} />
-            </button>
-          </li>
+
           {/* Authentication Buttons */}
           {user ? (
             <>
               <button
                 onClick={handleLogout}
-                className="text-white text-xl font-medium hover:text-red transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-green-900"
+                className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
               >
                 Logout
               </button>

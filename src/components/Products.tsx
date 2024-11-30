@@ -7,8 +7,8 @@ const Products = () => {
   const products = data?.data;
 
   return (
-    <div className="w-full bg-gradient-to-r from-green-200 to-red-200">
-      <h1 className="text-4xl font-bold my-10">Our All Products</h1>
+    <div className="w-full bg-blue-400">
+      <h1 className="text-4xl font-bold my-6">Our All Products</h1>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
         {products?.map((product: any) => (

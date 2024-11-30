@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 const ContactPage = () => {
+  const navigate = useNavigate();
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center py-10 px-4">
+    <div className=" bg-blue-400 min-h-screen flex flex-col items-center justify-center py-10 px-4 mt-6">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Contact Us</h1>
-      <div className="max-w-4xl bg-white shadow-lg rounded-lg p-6 w-full">
+      <div className="max-w-4xl bg-blue-200 shadow-lg rounded-lg p-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div>
@@ -87,9 +90,11 @@ const ContactPage = () => {
                   rows={4}
                 ></textarea>
               </div>
+
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 shadow-lg"
+                onClick={() => navigate("/products")}
+                className=" w-full bg-blue-500 hover:bg-purple-600 text-white text-xl font-bold py-2 px-4 rounded shadow-md transition duration-300 mb-4"
               >
                 Submit
               </button>

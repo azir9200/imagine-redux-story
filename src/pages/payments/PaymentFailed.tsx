@@ -8,8 +8,8 @@ const PaymentFailed = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-green-200 to-red-400">
-      <div className="bg-white shadow-lg rounded-lg p-6 md:p-10 text-center">
+    <div className="flex flex-col items-center  justify-center min-h-screen bg-blue-300">
+      <div className="bg-blue-900 shadow-lg rounded-lg p-6 mx-4 md:p-10 text-center">
         <svg
           className="w-16 h-16 text-red-500 mx-auto mb-4"
           fill="none"
@@ -30,13 +30,13 @@ const PaymentFailed = () => {
         </p>
         <button
           onClick={handleRedirect}
-          className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-300 mb-4"
+          className="bg-blue-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded shadow-md transition duration-300 mb-4"
         >
           Try Again
         </button>
         <button
           onClick={() => navigate("/")}
-          className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-300"
+          className="bg-green-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded shadow-md transition duration-300 mb-4"
         >
           Go to Home
         </button>

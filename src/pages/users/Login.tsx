@@ -45,9 +45,9 @@ const Login: React.FC = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-700 to-green-600 ">
-      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
-        <h2 className="text-2xl font-semibold text-center  text-green-700">
+    <div className="min-h-screen flex items-center justify-center bg-blue-400">
+      <div className="w-full max-w-md bg-blue-200 shadow-md rounded-lg p-8">
+        <h2 className="text-2xl font-semibold text-center  text-blue-700">
           Login
         </h2>
         <form className="my-8 space-y-6" onSubmit={handleSubmit}>
