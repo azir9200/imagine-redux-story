@@ -21,7 +21,6 @@ const ProductCart = ({ product }: { product: any }) => {
   };
 
   const handleAddToCart = (product: any) => {
-    console.log("object", product);
     dispatch(addToCart(product));
     toast.success(<div> You Product added to cart successfully! </div>);
   };

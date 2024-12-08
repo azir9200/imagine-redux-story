@@ -6,6 +6,7 @@ import { baseApi } from "./api/baseApi/baseApi";
 import userReducer from "./features/userSlice";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import productReducer from "../redux/features/ProductSlice";
 
 const persistUserConfig = {
   key: "user",
@@ -20,6 +21,7 @@ export const store = configureStore({
     login: loginReducer,
     register: registerReducer,
     user: persistedUserReducer,
+    product: productReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(

@@ -1,6 +1,7 @@
 import React from "react";
 
 const About: React.FC = () => {
+
   return (
     <div className="bg-blue-500 py-12 mt-2">
       <div className="max-w-7xl text-white mx-auto px-4 sm:px-6  lg:px-8">

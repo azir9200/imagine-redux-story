@@ -23,9 +23,13 @@ export default function CheckOutPage() {
     };
     try {
       const res = await createOrder(data).unwrap();
+      console.log("res. checkout", res.data);
+      console.log(data);
 
       if (res.success) {
+        console.log("res.", res.data.payment_url);
         window.location.href = res.data.payment_url;
+        console.log("href", res.data);
       } else {
         console.error("Order creation failed:", res.message);
       }
@@ -66,19 +70,6 @@ export default function CheckOutPage() {
                 className="mt-1 block w-full bg-slate-300  p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
               />
             </div>
-
-            {/* <div>
-              <label className="block text-sm font-medium text-blue-900 text-left">
-                Phone
-              </label>
-              <input
-                type="text"
-                name="phone"
-                value={myself?.phone}
-                required
-                className="mt-1 block w-full bg-slate-300  p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
-              />
-            </div> */}
 
             <div>
               <label className="block text-sm font-medium text-blue-900 text-left">

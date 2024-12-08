@@ -5,7 +5,6 @@ import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   const user = useAppSelector(selectCurrentUser);
-  console.log(" user protected", user);
 
   if (user?.email) {
     return children;

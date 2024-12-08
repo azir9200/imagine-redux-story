@@ -10,7 +10,6 @@ const Header = () => {
   const products = useAppSelector((store) => store.cart.products);
 
   const user = useAppSelector(selectCurrentUser);
-  console.log("user navbar", user);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -40,7 +39,7 @@ const Header = () => {
             <li>
               <Link
                 className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
-                to={"/products"}
+                to={"/product"}
               >
                 Products
               </Link>
@@ -59,6 +58,14 @@ const Header = () => {
                 href="/contact"
               >
                 Contact
+              </a>
+            </li>
+            <li>
+              <a
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
+                href="/dashboard"
+              >
+                Dashboard
               </a>
             </li>
             <li className="relative">

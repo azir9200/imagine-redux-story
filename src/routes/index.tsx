@@ -12,6 +12,10 @@ import PaymentFailed from "../pages/payments/PaymentFailed";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PaymentSuccess from "../pages/payments/PaymentSuccess";
 import ContactPage from "../pages/contact/Contact";
+import Dashboard from "../components/layouts/Dashboard";
+import UserInfo from "../Dashboarditems/UserInfo";
+import AddProduct from "../Dashboarditems/AddProduct";
+import EditProduct from "../Dashboarditems/EditProduce";
 
 export const router = createBrowserRouter([
   {
@@ -33,8 +37,12 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/products",
-        element: <Products />,
+        path: "/product",
+        element: (
+          <ProtectedRoute>
+            <Products />{" "}
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/checkout",
@@ -64,6 +72,25 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+    ],
+  },
+  //dashboard routes
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "user",
+        element: <UserInfo></UserInfo>,
+      },
+      {
+        path: "addProduct",
+        element: <AddProduct></AddProduct>,
+      },
+      {
+        path: "editProduct",
+        element: <EditProduct></EditProduct>,
       },
     ],
   },
