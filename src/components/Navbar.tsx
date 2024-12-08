@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 import logo from "../assets/image/logo.png";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { logout, selectCurrentUser } from "../redux/features/userSlice";
+import { useGetMeQuery } from "../redux/api/getMeApi/getMeApi";
 
 const Header = () => {
+  const { data } = useGetMeQuery(undefined);
+  const myself = data?.data;
+  console.log("object", myself?.name);
+
   const dispatch = useAppDispatch();
   const products = useAppSelector((store) => store.cart.products);
 
@@ -86,7 +91,7 @@ const Header = () => {
                   onClick={handleLogout}
                   className="text-white text-xl font-medium hover:text-red  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
                 >
-                  Logout
+                  {myself?.name} Logout
                 </button>
               </>
             ) : (
