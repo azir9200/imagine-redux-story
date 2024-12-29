@@ -2,6 +2,7 @@
 import { useCreateOrderMutation } from "../../redux/api/orderApi/orderApi";
 import { useAppSelector } from "../../redux/hooks";
 import { useGetMeQuery } from "../../redux/api/getMeApi/getMeApi";
+import toast from "react-hot-toast";
 
 export default function CheckOutPage() {
   const [createOrder] = useCreateOrderMutation();
@@ -23,8 +24,9 @@ export default function CheckOutPage() {
     };
     try {
       const res = await createOrder(data).unwrap();
-      console.log("res. checkout", res.data);
-      console.log(data);
+      // console.log("res. checkout", res.data);
+      // console.log(data);
+      toast.success("Successfully submitted");
 
       if (res.success) {
         console.log("res.", res.data.payment_url);
@@ -39,14 +41,16 @@ export default function CheckOutPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-6 p-6 bg-blue-300 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-bold mb-6">Checkout</h2>
+    <div className="max-w-4xl mx-auto mt-6 p-6 bg-slate-600 rounded-lg shadow-lg">
+      <h2 className="text-3xl text-white font-bold mb-6">Checkout</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-8 border p-5 rounded">
-          <h3 className="text-xl font-semibold mb-4">User Information</h3>
+          <h3 className="text-xl  text-white font-semibold mb-4">
+            User Information
+          </h3>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
-              <label className="block text-base font-medium text-blue-900 text-left">
+              <label className="block text-base font-medium text-white  text-left">
                 Name
               </label>
               <input
@@ -54,7 +58,7 @@ export default function CheckOutPage() {
                 name="name"
                 value={myself?.name}
                 required
-                className="mt-1 block w-full bg-slate-300 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full bg-white p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
               />
             </div>
 
@@ -67,7 +71,7 @@ export default function CheckOutPage() {
                 name="email"
                 value={myself?.email}
                 required
-                className="mt-1 block w-full bg-slate-300  p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full bg-white p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
               />
             </div>
 
@@ -80,7 +84,7 @@ export default function CheckOutPage() {
                 name="address"
                 value={myself?.address}
                 required
-                className="mt-1 block w-full bg-slate-300  p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full bg-white p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500"
               />
             </div>
           </div>
@@ -117,7 +121,7 @@ export default function CheckOutPage() {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg hover:bg-purple-700 transition duration-300"
+            className="bg-white text-slate-900 font-semibold py-2 px-6 rounded-lg hover:bg-emerald-700 transition duration-300"
           >
             Proceed to Payment
           </button>

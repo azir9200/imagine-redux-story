@@ -37,7 +37,7 @@ const ProductCart = ({ product }: { product: any }) => {
 
       <div
         onClick={() => handleShowModal(product)}
-        className="border rounded-lg shadow-lg overflow-hidden bg-blue-200 transition-transform transform hover:scale-105 hover:shadow-2xl flex flex-col h-full"
+        className="border rounded-lg shadow-lg overflow-hidden bg-slate-800 transition-transform transform hover:scale-105 hover:shadow-2xl flex flex-col h-full"
       >
         <img
           src={product.image}
@@ -45,22 +45,21 @@ const ProductCart = ({ product }: { product: any }) => {
           className="w-full h-48 object-cover transition-opacity duration-300 hover:opacity-75"
         />
         <div className="p-4 flex flex-col flex-grow">
-          <h3 className="text-xl font-bold text-blue-700 mb-2">
-            {product.name}
-          </h3>
-          <p className="text-blue-700 font-semibold text-lg mb-4 flex-grow">
+          <h3 className="text-xl font-bold text-white mb-2">{product.name}</h3>
+          <p className="text-white font-semibold text-lg mb-4 flex-grow">
             {product.description}
           </p>
-          <p className="text-lg font-bold text-purple-800 mb-4">
-            {product.price}
+          <p className="text-lg font-bold text-white mb-4">
+            {" "}
+            Price: ${product.price}
           </p>
           <button
             onClick={(e) => {
               e.stopPropagation();
               handleAddToCart(product);
             }}
-            className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-800 transition duration-300 shadow-md hover:shadow-lg"
-          >
+            className="bg-slate-950 text-white  hover:bg-white hover:text-slate-800 font-semibold py-2 px-4 rounded-lg  transition duration-300 shadow-md hover:shadow-lg"
+          >  
             Add to Cart
           </button>
         </div>

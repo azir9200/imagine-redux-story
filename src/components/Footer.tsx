@@ -3,12 +3,14 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-blue-400 mt-2 text-white ">
+    <footer className="bg-slate-800 mt-2 text-white ">
       <div className=" mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left">
-            <h2 className="text-2xl font-semibold text-blue-700">FitGear</h2>
-            <p className="mt-2 text-blue-700">
+            <h2 className="text-2xl font-semibold   text-white  hover:bg-emerald-500 hover:text-slate-800">
+              FitGear
+            </h2>
+            <p className="mt-2 text-white">
               Your go-to destination for premium fitness equipment.
             </p>
           </div>
@@ -19,7 +21,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="/"
-                  className="text-blue-900 hover:text-purple-700 hover:bg-white"
+                  className="rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 >
                   Home
                 </a>
@@ -27,7 +29,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="/product"
-                  className="text-blue-900 hover:text-purple-700 hover:bg-white"
+                  className="rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 >
                   Products
                 </a>
@@ -35,7 +37,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="/contact"
-                  className="text-blue-900 hover:text-purple-700 hover:bg-white"
+                  className="rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 >
                   Contact
                 </a>
@@ -43,7 +45,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="/about"
-                  className="text-blue-900 hover:text-purple-700 hover:bg-white"
+                  className="rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 >
                   About Us
                 </a>
@@ -52,11 +54,13 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="mt-4 md:mt-0">
-            <h3 className="text-lg font-semibold text-gray-800">Follow Us</h3>
+            <h3 className="text-lg font-semibold rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800">
+              Follow Us
+            </h3>
             <div className="mt-2 flex space-x-4 justify-center md:justify-start">
               <a
                 href="https://facebook.com"
-                className="text-blue-900 hover:text-purple-700 hover:bg-white"
+                className="rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 aria-label="Facebook"
               >
                 <svg
@@ -69,7 +73,7 @@ const Footer: React.FC = () => {
               </a>
               <a
                 href="https://twitter.com"
-                className="text-blue-900 hover:text-purple-700 hover:bg-white"
+                 className="rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 aria-label="Twitter"
               >
                 <svg
@@ -82,7 +86,7 @@ const Footer: React.FC = () => {
               </a>
               <a
                 href="https://instagram.com"
-                className="text-blue-900 hover:text-purple-700 hover:bg-white"
+                 className="rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 aria-label="Instagram"
               >
                 <svg

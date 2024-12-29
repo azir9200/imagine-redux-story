@@ -26,8 +26,8 @@ const Header = () => {
   };
   return (
     <header className=" mx-auto text-white text-lg p-2">
-      <nav className="px-20 mx-6 fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-blue-400">
-        <Link to={"/"} className="  hover:bg-purple-700 rounded ">
+      <nav className="px-20 mx-6 fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-slate-700">
+        <Link to={"/"} className="  hover:bg-emerald-700 rounded ">
           <img src={logo} alt="logo" className="w-16  " />
         </Link>
 
@@ -35,7 +35,7 @@ const Header = () => {
           <ul className="flex items-center space-x-5">
             <li>
               <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 to={"/"}
               >
                 Home
@@ -43,7 +43,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl text-white  hover:bg-emerald-500 hover:text-slate-800"
                 to={"/product"}
               >
                 Products
@@ -51,7 +51,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 href="/about"
               >
                 About
@@ -59,7 +59,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 href="/contact"
               >
                 Contact
@@ -67,7 +67,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 href="/dashboard"
               >
                 Dashboard
@@ -75,12 +75,12 @@ const Header = () => {
             </li>
             <li className="relative">
               <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 to={"/cart"}
               >
                 <ShoppingCart size={24} />
               </Link>
-              <span className="rounded-full absolute top-[-10px] left-[20px] bg-primary text-white text-center size-[25px]">
+              <span className="rounded-full absolute top-[-10px] left-[20px] bg-emerald-400 text-white text-center size-[25px]">
                 {products.length}
               </span>
             </li>
@@ -89,7 +89,7 @@ const Header = () => {
               <>
                 <button
                   onClick={handleLogout}
-                  className="text-white text-xl font-medium hover:text-red  transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-purple-700"
+                  className="rounded-md text-xl font-medium hover:text-red  transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 >
                   {myself?.name} Logout
                 </button>
@@ -97,7 +97,7 @@ const Header = () => {
             ) : (
               <li>
                 <Link
-                  className="rounded-lg backdrop-blur-[2px] p-4 inline-block hover:bg-purple-700"
+                  className="rounded-lg backdrop-blur-[2px] p-4 inline-block  text-white  hover:bg-emerald-500 hover:text-slate-800"
                   to={"/login"}
                 >
                   Login
@@ -111,7 +111,7 @@ const Header = () => {
         <div className="md:hidden bg-slate-300 flex items-center">
           <button
             onClick={handleMenuToggle}
-            className="text-white p-2 rounded-md hover:bg-purple-700 focus:outline-none"
+            className=" p-2 rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800 focus:outline-none"
           >
             <svg
               className="w-6 h-6 "
@@ -145,7 +145,7 @@ const Header = () => {
         <ul className="md:hidden bg-blue-500 flex flex-col items-center mt-8 py-4 w-full ">
           <li className="">
             <Link
-              className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
+              className="rounded-lg backdrop-blur-[4px] p-1 inline-block   text-white  hover:bg-emerald-500 hover:text-slate-800"
               to={"/productsPage"}
               onClick={handleMenuToggle}
             >
@@ -154,7 +154,7 @@ const Header = () => {
           </li>
           <li>
             <a
-              className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
+              className="rounded-lg backdrop-blur-[4px] p-1 inline-block   text-white  hover:bg-emerald-500 hover:text-slate-800"
               href="/about"
               onClick={handleMenuToggle}
             >
@@ -163,7 +163,7 @@ const Header = () => {
           </li>
           <li>
             <a
-              className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
+              className="rounded-lg backdrop-blur-[4px] p-1 inline-block   text-white  hover:bg-emerald-500 hover:text-slate-800"
               href="/contact"
               onClick={handleMenuToggle}
             >
@@ -172,7 +172,7 @@ const Header = () => {
           </li>
           <li className="relative">
             <Link
-              className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
+              className="rounded-lg backdrop-blur-[4px] p-1 inline-block   text-white  hover:bg-emerald-500 hover:text-slate-800"
               to={"/cart"}
               onClick={handleMenuToggle}
             >
@@ -188,7 +188,7 @@ const Header = () => {
             <>
               <button
                 onClick={handleLogout}
-                className="rounded-lg backdrop-blur-[4px] p-1 inline-block  hover:bg-purple-700"
+                className="rounded-lg backdrop-blur-[4px] p-1 inline-block  text-white  hover:bg-emerald-500 hover:text-slate-800"
               >
                 Logout
               </button>
@@ -196,7 +196,7 @@ const Header = () => {
           ) : (
             <li>
               <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block hover:bg-green-900"
+                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  text-white  hover:bg-emerald-500 hover:text-slate-800"
                 to={"/login"}
               >
                 Login

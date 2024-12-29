@@ -16,22 +16,22 @@ const CartDetails = ({ product }: any) => {
   };
 
   return (
-    <div className="flex items-center justify-between space-x-4 border border-gray-300 rounded-lg p-4 bg-blue-200 shadow-md transition-transform transform hover:scale-105 hover:shadow-lg w-full max-w-md mx-auto">
+    <div className="flex items-center justify-between space-x-4 border border-gray-300 rounded-lg p-4 bg-slate-600 shadow-md transition-transform transform hover:scale-105 hover:shadow-lg w-full max-w-md mx-auto">
       <img
         src={product.image}
         alt={product.name}
         className="w-24 h-24 object-cover rounded-md"
       />
       <div className="flex-grow mx-4">
-        <h3 className="text-lg font-semibold text-blue-700 truncate mb-2">
+        <h3 className="text-lg font-semibold text-white truncate mb-2">
           {product.name}
         </h3>
-        <p className="text-lg font-bold text-blue-600">${product.price}</p>
+        <p className="text-lg font-bold text-white">${product.price}</p>
       </div>
       <div className="flex items-center space-x-2">
         <button
           onClick={() => handleQuantity("decrement", product._id)}
-          className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-900"
+          className="bg-white text-slate-800 p-2 rounded-full hover:bg-emerald-500"
           disabled={product.quantity === 1}
         >
           <Minus size={18} />
@@ -39,14 +39,14 @@ const CartDetails = ({ product }: any) => {
         <span className="text-lg font-semibold">{product.quantity}</span>
         <button
           onClick={() => handleQuantity("increment", product._id)}
-          className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-900"
+          className="bg-white text-slate-800 p-2 rounded-full hover:bg-emerald-500"
         >
           <Plus size={18} />
         </button>
       </div>
       <button
         onClick={() => handleRemove(product._id)}
-        className="bg-red-600 text-white p-2 rounded-full hover:bg-purple-800"
+        className="bg-red-600 text-white p-2 rounded-full hover:bg-emerald-700"
       >
         <Trash2 size={18} />
       </button>

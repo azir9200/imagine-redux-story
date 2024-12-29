@@ -7,7 +7,7 @@ const Products = () => {
   const products = data?.data;
 
   return (
-    <div className="w-full bg-blue-400">
+    <div className="w-full bg-slate-600">
       <h1 className="text-4xl font-bold my-6">Our All Products</h1>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
