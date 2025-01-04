@@ -3,8 +3,10 @@ import { useCreateOrderMutation } from "../../redux/api/orderApi/orderApi";
 import { useAppSelector } from "../../redux/hooks";
 import { useGetMeQuery } from "../../redux/api/getMeApi/getMeApi";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckOutPage() {
+  const navigate = useNavigate();
   const [createOrder] = useCreateOrderMutation();
   //get me query
   const { data } = useGetMeQuery(undefined);
@@ -22,15 +24,14 @@ export default function CheckOutPage() {
         quantity: item.quantity,
       })),
     };
+    // order data creating here
     try {
       const res = await createOrder(data).unwrap();
-      // console.log("res. checkout", res.data);
-      // console.log(data);
+
       toast.success("Successfully submitted");
 
       if (res.success) {
-        console.log("res.", res.data.payment_url);
-        window.location.href = res.data.payment_url;
+        // window.location.href = res.data.payment_url;
         console.log("href", res.data);
       } else {
         console.error("Order creation failed:", res.message);
@@ -121,6 +122,8 @@ export default function CheckOutPage() {
         <div className="flex justify-end">
           <button
             type="submit"
+            onClick={() => navigate("/payment/success")}
+            // to="http://localhost:5173/payment/success"
             className="bg-white text-slate-900 font-semibold py-2 px-6 rounded-lg hover:bg-emerald-700 transition duration-300"
           >
             Proceed to Payment

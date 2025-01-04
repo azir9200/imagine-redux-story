@@ -1,7 +1,14 @@
-import { useNavigate } from "react-router-dom";
+import { FieldValues, SubmitHandler } from "react-hook-form";
+import { toast } from "sonner";
 
 const ContactPage = () => {
-  const navigate = useNavigate();
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
+    toast.success(
+      "You Message sent to the authority, You will have response as soon as possible, thank you."
+    );
+  };
+
   return (
     <div className=" bg-slate-600 min-h-screen flex flex-col items-center justify-center py-10 px-4 mt-6">
       <h1 className="text-3xl font-bold text-white mb-6">Contact Us</h1>
@@ -58,7 +65,7 @@ const ContactPage = () => {
             <h2 className="text-2xl font-bold text-white mb-4">
               Send a Message
             </h2>
-            <form className="space-y-4">
+            <form onSubmit={onSubmit} className="space-y-4">
               <div>
                 <label className="block text-black text-sm font-medium mb-1">
                   Name
@@ -92,7 +99,7 @@ const ContactPage = () => {
 
               <button
                 type="submit"
-                onClick={() => navigate("/products")}
+                // onClick={() => navigate("/products")}
                 className="w-full bg-white  text-black  hover:bg-emerald-500 hover:text-white text-xl font-bold py-2 px-4 rounded shadow-md transition duration-300 mb-4"
               >
                 Submit

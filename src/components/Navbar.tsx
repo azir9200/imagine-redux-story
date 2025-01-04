@@ -68,7 +68,7 @@ const Header = () => {
             <li>
               <a
                 className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
-                href="/dashboard"
+                href="dashboard/user"
               >
                 Dashboard
               </a>
