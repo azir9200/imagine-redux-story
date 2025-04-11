@@ -1,9 +1,11 @@
 import { useGetMeQuery } from "../redux/api/getMeApi/getMeApi";
 
 const UserInfo = () => {
-  const { data } = useGetMeQuery(undefined);
+  const { data, isLoading, error } = useGetMeQuery(undefined);
   const myself = data?.data;
   console.log("object", myself?.name);
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error fetching user data</p>;
 
   return (
     <div className="container mx-auto p-16">

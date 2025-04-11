@@ -3,7 +3,6 @@ import App from "../App";
 import Home from "../pages/Home";
 import Cart from "../pages/carts/Cart";
 import About from "../pages/about/About";
-import Products from "../components/Products";
 import Login from "../pages/users/Login";
 import Register from "../pages/users/Register";
 import ProtectedRoute from "../components/layouts/ProtectedRoute";
@@ -16,6 +15,7 @@ import Dashboard from "../components/layouts/Dashboard";
 import UserInfo from "../Dashboarditems/UserInfo";
 import AddProduct from "../Dashboarditems/AddProduct";
 import EditProduct from "../Dashboarditems/EditProduce";
+import ProductPage from "../pages/product/ProductPage";
 
 export const router = createBrowserRouter([
   {
@@ -37,11 +37,13 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/product",
+        path: "/product-page",
         element: (
-          <ProtectedRoute>
-            <Products />{" "}
-          </ProtectedRoute>
+          <ProductPage />
+
+          // <ProtectedRoute>
+          //   <Products />{" "}
+          // </ProtectedRoute>
         ),
       },
       {

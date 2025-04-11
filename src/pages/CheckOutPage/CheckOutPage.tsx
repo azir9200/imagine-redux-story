@@ -123,7 +123,6 @@ export default function CheckOutPage() {
           <button
             type="submit"
             onClick={() => navigate("/payment/success")}
-            // to="http://localhost:5173/payment/success"
             className="bg-white text-slate-900 font-semibold py-2 px-6 rounded-lg hover:bg-emerald-700 transition duration-300"
           >
             Proceed to Payment

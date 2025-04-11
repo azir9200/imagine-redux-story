@@ -28,7 +28,7 @@ const PaymentSuccess = () => {
           successfully.
         </p>
         <button
-          onClick={() => navigate("/product")}
+          onClick={() => navigate("/product-page")}
           className="text-3xl hover:bg-purple-600 text-white font-bold py-2 px-4 rounded shadow-md transition duration-300 mb-4"
         >
           See more Product

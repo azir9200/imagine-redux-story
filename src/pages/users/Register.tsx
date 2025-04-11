@@ -93,17 +93,6 @@ const Register: React.FC = () => {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
               />
             </div>
-
-            {/* <div>
-              <input
-                type="text"
-                placeholder="cart"
-                id="cart"
-                value={cart}
-                onChange={(e) => dispatch(setCart(e.target.value))}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
-              />
-            </div> */}
             <div>
               <div>
                 <input

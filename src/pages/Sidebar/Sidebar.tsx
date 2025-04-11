@@ -1,16 +1,14 @@
 import {
-  
   Cog6ToothIcon,
   ChatBubbleOvalLeftEllipsisIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 
 import { NavLink } from "react-router-dom";
-import {  BookOpenIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon } from "@heroicons/react/24/outline";
 import { Edit, Home } from "lucide-react";
 
 const Sidebar = () => {
-
   return (
     <div className="h-screen sticky top-0 border-r-2 border-secondary/20">
       <div className="flex flex-col items-center bg-slate-700 gap-5 h-full py-5">
@@ -20,7 +18,7 @@ const Sidebar = () => {
           className={({ isActive }) =>
             isActive
               ? "p-2 rounded-2xl bg-white text-slate-800 cursor-pointer"
-              : "p-2 rounded-http://localhost:5173/dashboard/tasks2xl group text-white cursor-pointer transition-all  hover:bg-emerald-500 hover:text-slate-800"
+              : "p-2 rounded-https://imagine-redux-story.vercel.app/dashboard/tasks2xl group text-white cursor-pointer transition-all  hover:bg-emerald-500 hover:text-slate-800"
           }
         >
           <Home className="h-7 w-7 group-hover:text-white" />
@@ -70,7 +68,6 @@ const Sidebar = () => {
           User
           <UserCircleIcon className="h-7 w-7 group-hover:text-white " />
         </NavLink>
-
 
         <NavLink
           to="/"

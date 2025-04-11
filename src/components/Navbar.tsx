@@ -25,8 +25,8 @@ const Header = () => {
     dispatch(logout());
   };
   return (
-    <header className=" mx-auto text-white text-lg p-2">
-      <nav className="px-20 mx-6 fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-slate-700">
+    <header className=" border border-red-700 mx-auto text-white text-lg p-2">
+      <nav className="px-20  fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-slate-700">
         <Link to={"/"} className="  hover:bg-emerald-700 rounded ">
           <img src={logo} alt="logo" className="w-16  " />
         </Link>
@@ -44,7 +44,7 @@ const Header = () => {
             <li>
               <Link
                 className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl text-white  hover:bg-emerald-500 hover:text-slate-800"
-                to={"/product"}
+                to={"/product-page"}
               >
                 Products
               </Link>
@@ -65,25 +65,33 @@ const Header = () => {
                 Contact
               </a>
             </li>
-            <li>
-              <a
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
-                href="dashboard/user"
-              >
-                Dashboard
-              </a>
-            </li>
-            <li className="relative">
-              <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
-                to={"/cart"}
-              >
-                <ShoppingCart size={24} />
-              </Link>
-              <span className="rounded-full absolute top-[-10px] left-[20px] bg-emerald-400 text-white text-center size-[25px]">
-                {products.length}
-              </span>
-            </li>
+            {/* Authentication Buttons */}
+            {user ? (
+              <>
+                <li>
+                  <a
+                    className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
+                    href="dashboard/user"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <li className="relative">
+                  <Link
+                    className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
+                    to={"/cart"}
+                  >
+                    <ShoppingCart size={24} />
+                  </Link>
+                  <span className="rounded-full absolute top-[-10px] left-[20px] bg-emerald-400 text-white text-center size-[25px]">
+                    {products.length}
+                  </span>
+                </li>
+              </>
+            ) : (
+              " "
+            )}
+
             {/* Authentication Buttons */}
             {user ? (
               <>
@@ -111,7 +119,7 @@ const Header = () => {
         <div className="md:hidden bg-slate-300 flex items-center">
           <button
             onClick={handleMenuToggle}
-            className=" p-2 rounded-md  text-white  hover:bg-emerald-500 hover:text-slate-800 focus:outline-none"
+            className=" p-2 rounded-md bg-white  text-black  hover:bg-black hover:text-white focus:outline-none"
           >
             <svg
               className="w-6 h-6 "
@@ -142,11 +150,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="md:hidden bg-blue-500 flex flex-col items-center mt-8 py-4 w-full ">
+        <ul className="md:hidden bg-blue-900 flex flex-col items-center mt-8 py-4 w-full ">
           <li className="">
             <Link
               className="rounded-lg backdrop-blur-[4px] p-1 inline-block   text-white  hover:bg-emerald-500 hover:text-slate-800"
-              to={"/productsPage"}
+              to={"/product-page"}
               onClick={handleMenuToggle}
             >
               Products
