@@ -5,7 +5,7 @@ import { useGetAllProductQuery } from "../redux/api/productApi/ProductApi";
 const Products = () => {
   const { data } = useGetAllProductQuery(1);
   const products = data?.data;
-  console.log("data=object", products);
+  // console.log("data=object", products);
 
   return (
     <div className="w-full bg-slate-600">

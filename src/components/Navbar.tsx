@@ -1,6 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/image/logo.png";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { logout, selectCurrentUser } from "../redux/features/userSlice";
@@ -10,6 +10,26 @@ const Header = () => {
   const { data } = useGetMeQuery(undefined);
   const myself = data?.data;
   console.log("object", myself?.name);
+  const location = useLocation();
+
+  const navLink = [
+    {
+      name: "Home",
+      pathName: "/",
+    },
+    {
+      name: "Product",
+      pathName: "/product-page",
+    },
+    {
+      name: "About",
+      pathName: "/about",
+    },
+    {
+      name: "Contact",
+      pathName: "/contact",
+    },
+  ];
 
   const dispatch = useAppDispatch();
   const products = useAppSelector((store) => store.cart.products);
@@ -26,45 +46,28 @@ const Header = () => {
   };
   return (
     <header className=" border border-red-700 mx-auto text-white text-lg p-2">
-      <nav className="px-20  fixed top-0 left-0 w-[calc(100%-3rem)] z-50 flex items-center justify-between space-x-10 py-2 bg-slate-700">
+      <nav className="px-20  fixed top-0 left-0 w-full z-50 flex items-center justify-between space-x-10 py-2 bg-slate-700">
         <Link to={"/"} className="  hover:bg-emerald-700 rounded ">
           <img src={logo} alt="logo" className="w-16  " />
         </Link>
 
         <div className="hidden md:flex items-center space-x-5 ">
           <ul className="flex items-center space-x-5">
-            <li>
-              <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
-                to={"/"}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl text-white  hover:bg-emerald-500 hover:text-slate-800"
-                to={"/product-page"}
-              >
-                Products
-              </Link>
-            </li>
-            <li>
-              <a
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
-                href="/about"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
-                href="/contact"
-              >
-                Contact
-              </a>
-            </li>
+            {/* // navLink */}
+
+            {navLink.map((item) => (
+              <li key={item.pathName}>
+                <Link
+                  className={`rounded-lg ${
+                    location.pathname == item.pathName ? "bg-emerald-700" : ""
+                  } backdrop-blur-[2px] p-1 inline-block  transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800`}
+                  to={item.pathName}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+
             {/* Authentication Buttons */}
             {user ? (
               <>
