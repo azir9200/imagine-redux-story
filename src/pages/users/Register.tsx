@@ -32,7 +32,7 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="my-6 bg-blue-300">
+    <div className="my-12 bg-blue-300">
       <h1 className="text-center text-4xl mb-5">
         Register <span className="text-blue-700">Now</span>
       </h1>
@@ -70,18 +70,7 @@ const Register: React.FC = () => {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
               />
             </div>
-            {/* 
-            <div>
-              <input
-                placeholder="Role"
-                type="role"
-                id="role"
-                value={role}
-                onChange={(e) => dispatch(setRole(e.target.value))}
-                required
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-md"
-              />
-            </div> */}
+
             <div>
               <input
                 placeholder="Address"

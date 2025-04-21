@@ -9,7 +9,7 @@ import { useGetMeQuery } from "../redux/api/getMeApi/getMeApi";
 const Header = () => {
   const { data } = useGetMeQuery(undefined);
   const myself = data?.data;
-  console.log("object", myself?.name);
+  console.log("object", myself);
   const location = useLocation();
 
   const navLink = [
@@ -64,7 +64,7 @@ const Header = () => {
                   to={item.pathName}
                 >
                   {item.name}
-                  </Link>
+                </Link>
               </li>
             ))}
 
