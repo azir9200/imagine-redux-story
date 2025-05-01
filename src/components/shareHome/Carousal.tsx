@@ -28,7 +28,7 @@ const HomeSlide = () => {
             </p>
             <a
               href="/product"
-              className="bg-green-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300"
+              className="bg-slate-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-slate-700 transition duration-300"
             >
               Shop Now
             </a>
@@ -50,7 +50,7 @@ const HomeSlide = () => {
             <p className="text-white text-xl mb-4">Achieve Your Goal.</p>
             <a
               href="/product"
-              className="bg-green-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300"
+              className="bg-slate-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-slate-700 transition duration-300"
             >
               Shop Now
             </a>
@@ -74,7 +74,7 @@ const HomeSlide = () => {
             </p>
             <a
               href="/product"
-              className="bg-green-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300"
+              className="bg-slate-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-slate-700 transition duration-300"
             >
               Shop Now
             </a>
@@ -97,7 +97,7 @@ const HomeSlide = () => {
             </p>
             <a
               href="/product"
-              className="bg-green-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300"
+              className="bg-slate-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-slate-700 transition duration-300"
             >
               Shop Now
             </a>
@@ -121,7 +121,7 @@ const HomeSlide = () => {
             </p>
             <a
               href="/product"
-              className="bg-green-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300"
+              className="bg-slate-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-slate-700 transition duration-300"
             >
               Shop Now
             </a>
