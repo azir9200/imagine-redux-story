@@ -5,7 +5,6 @@ import Cart from "../pages/carts/Cart";
 import About from "../pages/about/About";
 import Login from "../pages/users/Login";
 import Register from "../pages/users/Register";
-import ProtectedRoute from "../components/layouts/ProtectedRoute";
 import CheckOutPage from "../pages/CheckOutPage/CheckOutPage";
 import PaymentFailed from "../pages/payments/PaymentFailed";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -29,12 +28,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: (
-          <ProtectedRoute>
-            {" "}
-            <Cart />{" "}
-          </ProtectedRoute>
-        ),
+        element: <Cart />,
       },
       {
         path: "/product-page",

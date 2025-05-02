@@ -1,5 +1,11 @@
-
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "../../components/ui/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "../../components/ui/table";
 
 interface CartItem {
   id: string;
@@ -28,7 +34,9 @@ const CartSummary = ({ items }: CartSummaryProps) => {
             <TableRow key={item.id}>
               <TableCell className="font-medium">{item.name}</TableCell>
               <TableCell>{item.quantity}</TableCell>
-              <TableCell className="text-right">${(item.price * item.quantity).toFixed(2)}</TableCell>
+              <TableCell className="text-right">
+                ${(item.price * item.quantity).toFixed(2)}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -36,7 +44,7 @@ const CartSummary = ({ items }: CartSummaryProps) => {
 
       <div className="mt-4">
         <h4 className="font-medium mb-2 text-sm">Additional Instructions</h4>
-        <textarea 
+        <textarea
           className="w-full h-24 p-3 border rounded-md resize-none text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
           placeholder="Special instructions for your order (optional)"
         />
