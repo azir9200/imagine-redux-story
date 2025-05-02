@@ -106,11 +106,11 @@ const Login: React.FC = () => {
           </form>
 
           {/* Bottom Link */}
-          <p className="text-center text-sm text-gray-600 mt-6">
+          <p className="text-center text-xl text-gray-600 mt-6">
             Don't have an account?{" "}
             <Link
               to="/register"
-              className="text-indigo-600 hover:underline font-medium"
+              className="text-indigo-700 hover:underline hover:text-red-700 font-medium text-2xl"
             >
               Sign Up
             </Link>
