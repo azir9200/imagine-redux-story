@@ -18,6 +18,12 @@ import { useToast } from "../../hooks/use-toast";
 import { Badge } from "../../components/ui/badge";
 import CartSummary from "./CartSummery";
 import BillingDetails from "./BilingDetails";
+import { Separator } from "../../components/ui/separator";
+import { Check, ShieldCheck } from "lucide-react";
+import { Label } from "../../components/ui/label";
+import img1 from "../../../src/assets/assets/Screenshot_2025-05-02_210353-removebg-preview.png";
+import img2 from "../../../src/assets/assets/Screenshot_2025-05-02_210518-removebg-preview.png";
+import { Button } from "../../components/ui/button";
 
 // Mock data for this example
 const cartItems = [
@@ -118,7 +124,73 @@ const CheckOut = () => {
             </CardContent>
           </Card>
         </div>
+  {/* Right side - Payment summary */}
+  <div>
+          <Card className="sticky top-14 shadow-md">
+            <CardHeader className="border-b bg-muted/30">
+              <CardTitle>Payment Summary</CardTitle>
+              <CardDescription>Secure payment via Stripe</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6 pt-6">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground">Subtotal</span>
+                  <span className="font-medium">${subtotal.toFixed(2)}</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground">Shipping</span>
+                  <span className="font-medium">${shipping.toFixed(2)}</span>
+                </div>
+                <Separator className="my-2" />
+                <div className="flex items-center justify-between font-medium">
+                  <span>Total</span>
+                  <span className="text-lg">${total.toFixed(2)}</span>
+                </div>
+              </div>
 
+              <div className="rounded-lg bg-muted/50 p-3 text-sm flex items-center">
+                <ShieldCheck className="h-4 w-4 mr-2 text-green-500" />
+                <span>Your payment information is secure</span>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+                <div className="space-y-2">
+                  <Label htmlFor="card-number">Availabe Payment</Label>
+                  <div className="grid grid-cols-1 gap-2">
+                    <img src={img1} className=" w-60" alt="Bkash" width="50" />
+                    <img
+                      src={img2}
+                      className=" w-60"
+                      alt="Google Pay"
+                      width="50"
+                    />
+                  </div>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      Processing <span className="animate-spin">...</span>
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      Pay ${total.toFixed(2)} <Check className="h-4 w-4" />
+                    </span>
+                  )}
+                </Button>
+              </form>
+
+              <div className="text-xs text-center text-muted-foreground pt-2">
+                By clicking "Pay" you agree to our Terms of Service and Privacy
+                Policy
+              </div>
+            </CardContent>
+          </Card>
+        </div>
         <form onSubmit={handleSubmit}>
           {/* <div className="mb-8 border p-5 rounded">
             <h3 className="text-xl  text-white font-semibold mb-4">
