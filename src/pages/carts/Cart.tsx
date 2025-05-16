@@ -4,15 +4,15 @@ import OrderSummary from "../../components/OrderSummary";
 import { useAppSelector } from "../../redux/hooks";
 
 const Cart = () => {
-  const products = useAppSelector((store) => store.cart.products);
+  const products = useAppSelector((store) => store?.cart?.products);
+  console.log("product page", products);
+
   return (
     <div className=" max-w-7xl mx-auto min-h-[70vh] mt-20">
       <div className="flex lg:flex-row flex-col-reverse justify-center gap-6">
         <div className="space-y-5 lg:mt-0 mt-5 w-full lg:w-2/3 mb-6 md:mb-0">
           {products.length ? (
-            products.map((product: any) => (
-              <CartDetails key={product.id} product={product} />
-            ))
+            products.map((product: any) => <CartDetails product={product} />)
           ) : (
             <div className="bg-white rounded-lg p-8 shadow-md text-center">
               <p className="text-2xl text-slate-600">Your cart is empty</p>

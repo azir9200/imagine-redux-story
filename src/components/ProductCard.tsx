@@ -6,6 +6,7 @@ import { addToCart } from "../redux/features/cartSlice";
 import toast from "react-hot-toast";
 
 const ProductCard = ({ product }: { product: any }) => {
+  // console.log("product cart page", product);
   const dispatch = useAppDispatch();
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
@@ -21,8 +22,9 @@ const ProductCard = ({ product }: { product: any }) => {
   };
 
   const handleAddToCart = (product: any) => {
+    console.log("product cart page", product);
     dispatch(addToCart(product));
-    toast.success(<div> You Product added to cart successfully! </div>);
+    toast.success(<div> You Product added to cart successfully ! </div>);
   };
 
   return (
