@@ -1,9 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useCreateOrderMutation } from "../../redux/api/orderApi/orderApi";
-import { useAppSelector } from "../../redux/hooks";
-import { useGetMeQuery } from "../../redux/api/getMeApi/getMeApi";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+
 import { useState } from "react";
 // import { useToast } from "../../hooks/use-toast";
 import CheckoutLayout from "./checkoutLayout";
@@ -124,8 +120,8 @@ const CheckOut = () => {
             </CardContent>
           </Card>
         </div>
-  {/* Right side - Payment summary */}
-  <div>
+        {/* Right side - Payment summary */}
+        <div>
           <Card className="sticky top-14 shadow-md">
             <CardHeader className="border-b bg-muted/30">
               <CardTitle>Payment Summary</CardTitle>
@@ -155,7 +151,7 @@ const CheckOut = () => {
 
               <form onSubmit={handleSubmit} className="space-y-4 pt-2">
                 <div className="space-y-2">
-                  <Label htmlFor="card-number">Availabe Payment</Label>
+                  <Label htmlFor="card-number">Available Payment</Label>
                   <div className="grid grid-cols-1 gap-2">
                     <img src={img1} className=" w-60" alt="Bkash" width="50" />
                     <img
