@@ -18,7 +18,7 @@ const images = [
   "https://imagizer.imageshack.com/img923/7833/iMKjl6.jpg",
 ];
 
-const ImageGallery: React.FC = () => {
+const Gallery: React.FC = () => {
   return (
     <section className="py-12 bg-slate-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,4 +47,4 @@ const ImageGallery: React.FC = () => {
   );
 };
 
-export default ImageGallery;
+export default Gallery;

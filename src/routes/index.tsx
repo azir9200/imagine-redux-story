@@ -1,20 +1,24 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Home from "../pages/Home";
-import Cart from "../pages/carts/Cart";
-import About from "../pages/about/About";
-import Login from "../pages/users/Login";
-import Register from "../pages/users/Register";
-import CheckOutPage from "../pages/CheckOutPage/CheckOutPage";
-import PaymentFailed from "../pages/payments/PaymentFailed";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import PaymentSuccess from "../pages/payments/PaymentSuccess";
-import ContactPage from "../pages/contact/Contact";
 import Dashboard from "../components/layouts/Dashboard";
-import UserInfo from "../Dashboarditems/UserInfo";
+import ProtectedRoute from "../components/layouts/ProtectedRoute";
 import AddProduct from "../Dashboarditems/AddProduct";
 import EditProduct from "../Dashboarditems/EditProduce";
+import UserInfo from "../Dashboarditems/UserInfo";
+import About from "../pages/about/About";
+import Cart from "../pages/carts/Cart";
+import CheckOutPage from "../pages/CheckOutPage/CheckOutPage";
+import ContactPage from "../pages/contact/Contact";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PaymentFailed from "../pages/payments/PaymentFailed";
+import PaymentSuccess from "../pages/payments/PaymentSuccess";
 import ProductPage from "../pages/product/ProductPage";
+import Login from "../pages/users/Login";
+import Register from "../pages/users/Register";
+import Home from "../pages/Home";
+import Gallery from "../components/shareHome/Gallery";
+import Order from "../pages/Order/Order";
+import ManageOrder from "../pages/Order/DashBoardOrder";
 
 export const router = createBrowserRouter([
   {
@@ -28,17 +32,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <ProtectedRoute>
+            {" "}
+            <Cart />{" "}
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/product-page",
-        element: (
-          <ProductPage />
-
-          // <ProtectedRoute>
-          //   <Products />{" "}
-          // </ProtectedRoute>
-        ),
+        element: <ProductPage />,
       },
       {
         path: "/checkout",
@@ -52,22 +55,21 @@ export const router = createBrowserRouter([
         path: "payment/success",
         element: <PaymentSuccess />,
       },
-
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
       {
         path: "/about",
         element: <About />,
       },
       {
+        path: "/gallery",
+        element: <Gallery />,
+      },
+      {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/order",
+        element: <Order />,
       },
     ],
   },
@@ -78,7 +80,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "user",
-        element: <UserInfo />,
+        element: <UserInfo></UserInfo>,
       },
       {
         path: "addProduct",
@@ -88,6 +90,18 @@ export const router = createBrowserRouter([
         path: "editProduct",
         element: <EditProduct></EditProduct>,
       },
+      {
+        path: "allOrder",
+        element: <ManageOrder></ManageOrder>,
+      },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ]);
