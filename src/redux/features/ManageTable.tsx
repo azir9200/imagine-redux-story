@@ -26,14 +26,12 @@ interface ManageTableProps {
   loading: boolean;
   columns: Column[];
   isvalue: string;
-  onDelete: (id: string) => void;
 }
 
 const ManageTable: React.FC<ManageTableProps> = ({
   data,
   loading,
   columns,
-  onDelete,
   isvalue,
 }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -128,7 +126,7 @@ const ManageTable: React.FC<ManageTableProps> = ({
                   )}
                   {isvalue == "userOrder" && (
                     <button
-                      onClick={() => onDelete(item._id)}
+                    //   onClick={() => onDelete(item._id)}
                       className="px-2 cursor-pointer py-1 text-red-500 transition border border-red-500 rounded-md hover:bg-red-500 hover:text-white"
                     >
                       Delete

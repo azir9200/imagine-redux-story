@@ -152,11 +152,10 @@ const CheckOut = () => {
                   </div>
                 </div>
 
-                { 
-                  <Button
+                <Button
                   type="submit"
                   className="w-full"
-                  disabled={isSubmitting}
+                  disabled={products?.length == 0 || isSubmitting}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
@@ -164,11 +163,10 @@ const CheckOut = () => {
                     </span>
                   ) : (
                     <span className="flex items-center gap-2 text-white">
-                      Pay ${total.toFixed(2)}{" "}
-                      <Check className="h-4 w-4" />
+                      Pay ${total.toFixed(2)} <Check className="h-4 w-4" />
                     </span>
                   )}
-                </Button>}
+                </Button>
               </form>
               <div className="text-xs text-center text-muted-foreground pt-2">
                 By clicking "Pay" you agree to our Terms of Service and Privacy
