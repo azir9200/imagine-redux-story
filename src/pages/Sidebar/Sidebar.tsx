@@ -1,5 +1,4 @@
 import {
-  ChatBubbleOvalLeftEllipsisIcon,
   Cog6ToothIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";

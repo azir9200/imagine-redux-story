@@ -71,6 +71,7 @@ const Login: React.FC = () => {
                 onChange={(e) => dispatch(setEmail(e.target.value))}
                 required
                 placeholder="Enter your email"
+                defaultValue="user@gmail.com"
                 className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"
               />
             </div>
@@ -88,8 +89,8 @@ const Login: React.FC = () => {
                 id="password"
                 value={password}
                 onChange={(e) => dispatch(setPassword(e.target.value))}
-                required
                 placeholder="Enter your password"
+                defaultValue="123456"
                 className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"
               />
             </div>

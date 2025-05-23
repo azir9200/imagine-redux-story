@@ -69,7 +69,7 @@ const Header = () => {
             ))}
 
             {/* Authentication Buttons */}
-            {user ? (
+            {user?.role == "admin" ? (
               <>
                 <li>
                   <a
@@ -92,7 +92,27 @@ const Header = () => {
                 </li>
               </>
             ) : (
-              " "
+              <>
+                <li>
+                  <Link
+                    className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
+                    to={"/profile"}
+                  >
+                    Profile
+                  </Link>
+                </li>
+                <li className="relative">
+                  <Link
+                    className="rounded-lg backdrop-blur-[2px] p-1 inline-block transition-transform transform hover:scale-105 hover:shadow-2xl  text-white  hover:bg-emerald-500 hover:text-slate-800"
+                    to={"/cart"}
+                  >
+                    <ShoppingCart size={24} />
+                  </Link>
+                  <span className="rounded-full absolute top-[-10px] left-[20px] bg-emerald-400 text-white text-center size-[25px]">
+                    {products.length}
+                  </span>
+                </li>
+              </>
             )}
 
             {/* Authentication Buttons */}

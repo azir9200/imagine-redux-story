@@ -19,6 +19,7 @@ import Home from "../pages/Home";
 import Gallery from "../components/shareHome/Gallery";
 import Order from "../pages/Order/Order";
 import ManageOrder from "../pages/Order/DashBoardOrder";
+import Profile from "../Dashboarditems/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
       {
         path: "/order",
         element: <Order />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },
